@@ -1,36 +1,37 @@
 import React, { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Index() {
   const [show, setShow] = useState(false);
 
   return (
-    <section class="text-white">
-      <div class="max-w-screen-xl sm:px-4  sm:py-32 py-20 mx-auto lg:items-center lg:flex z-20 relative">
-        <div class="max-w-3xl mx-auto text-center">
-          <h1 class="text-[2.3em] transition-all font-extrabold text-transparent sm:text-6xl bg-clip-text bg-gradient-to-r capitalize from-green-300 via-blue-500 to-purple-600">
-            we provide Web Design 
-            <span class="sm:block pb-2">Services in iraq</span>
+    <section className="text-white">
+      <div className="max-w-screen-xl sm:px-4  sm:py-32 py-20 mx-auto lg:items-center lg:flex z-20 relative">
+        <div className="max-w-3xl mx-auto text-center">
+          <h1 className="text-[2.3em] transition-all font-extrabold text-transparent sm:text-6xl bg-clip-text bg-gradient-to-r capitalize from-green-300 via-blue-500 to-purple-600">
+            we provide Web Design
+            <span className="sm:block pb-2">Services in iraq</span>
           </h1>
 
-          <p class="max-w-xl mx-auto mt-4 sm:leading-relaxed sm:text-xl text-sm">
-            we are team of very ambitions and creative web development agency, we provide web development and ui/ux design services. contact us and lets build something great togather.
+          <p className="max-w-xl mx-auto mt-4 sm:leading-relaxed sm:text-xl text-sm">
+            we are team of very ambitions and creative web development agency,
+            we provide web development and ui/ux design services. contact us and
+            lets build something great togather.
           </p>
 
-          <div class="flex justify-center gap-4 mt-8">
-            <a
-              class="sm:block flex justify-center items-center w-full sm:px-12 sm:py-3 text-sm font-medium text-white bg-blue-600 border border-blue-600 rounded sm:w-auto active:text-opacity-75 hover:bg-transparent hover:text-white focus:outline-none focus:ring"
-              href="/get-started"
-            >
-              Get Started
-            </a>
+          <div className="flex justify-center gap-4 mt-8">
+            <Link href="/">
+              <a className="sm:block flex justify-center items-center w-full sm:px-12 sm:py-3 text-sm font-medium text-white bg-blue-600 border border-blue-600 rounded sm:w-auto active:text-opacity-75 hover:bg-transparent hover:text-white focus:outline-none focus:ring">
+                Get Started
+              </a>
+            </Link>
 
-            <a
-              class="block w-full sm:px-12 py-3 text-sm font-medium text-white border border-blue-600 rounded sm:w-auto hover:bg-blue-600 active:bg-blue-500 focus:outline-none focus:ring"
-              href="/about"
-            >
-              Learn More
-            </a>
+            <Link href="/">
+              <a className="block w-full sm:px-12 py-3 text-sm font-medium text-white border border-blue-600 rounded sm:w-auto hover:bg-blue-600 active:bg-blue-500 focus:outline-none focus:ring">
+                Learn More
+              </a>
+            </Link>
           </div>
         </div>
       </div>
