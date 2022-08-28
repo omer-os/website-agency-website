@@ -1,22 +1,39 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 export default function Navbar() {
   const [OpenNavBar, setOpenNavBar] = useState(false);
   const [OpenDropDown, setOpenDropDown] = useState(false);
+  const [navbar, setNavbar] = useState(false);
+  const changeBackground = () => {
+    console.log(window.scrollY);
+    if (window.scrollY >= 66) {
+      setNavbar(true);
+    } else {
+      setNavbar(false);
+    }
+  };
+
+  useEffect(() => {
+    changeBackground();
+    window.addEventListener("scroll", changeBackground);
+  });
+
   return (
     <>
-      <nav className="bg-white fixed top-0 left-0 w-full border-gray-200 px-5 sm:px-12 py-2.5 rounded dark:bg-gray-900">
+      <div className="pt-2"></div>
+      <nav
+        className={`z-40 w-full sticky py-2.5 top-0 left-0 w-full xl:px-[10em] px-[2em] ${
+          navbar ? "dark:bg-blue-600/10 backdrop-blur-sm" : ""
+        } transition-all duration-[.2s] `}
+      >
         <div className="container flex flex-wrap justify-between items-center mx-auto">
-          <a href="https://flowbite.com/" className="flex items-center">
+          <a href="/" className="flex items-center">
             <img
-              src="https://flowbite.com/docs/images/logo.svg"
+              src="/images/logo.svg"
               className="mr-3 h-6 sm:h-9"
-              alt="Flowbite Logo"
+              alt="Logo"
             />
-            <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
-              Flowbite
-            </span>
           </a>
           <div
             onClick={() => setOpenDropDown(!OpenDropDown)}
@@ -66,7 +83,9 @@ export default function Navbar() {
               English (US)
             </button>
             <div
-              className={`z-50 my-4 text-base list-none bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 absolute 
+              className={`z-50 my-4 text-base list-none rounded divide-y divide-gray-100 shadow dark:bg-gray-700 absolute 
+              xl:right-40
+
               top-10 
               right-10 
               ${OpenDropDown ? "!block" : "!hidden"}
@@ -247,7 +266,7 @@ export default function Navbar() {
             className="hidden justify-between items-center w-full md:flex md:w-auto md:order-1"
             id="mobile-menu-language-select"
           >
-            <ul className="flex flex-col p-4 mt-4 bg-gray-50 rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+            <ul className="flex flex-col p-4 mt-4 rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 dark:border-gray-700">
               <li>
                 <a
                   href="#"
