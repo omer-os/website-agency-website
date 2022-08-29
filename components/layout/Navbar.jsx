@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 export default function Navbar() {
   const [OpenNavBar, setOpenNavBar] = useState(false);
   const [OpenDropDown, setOpenDropDown] = useState(false);
   const [navbar, setNavbar] = useState(false);
   const changeBackground = () => {
-    console.log(window.scrollY);
     if (window.scrollY >= 66) {
       setNavbar(true);
     } else {
@@ -29,11 +29,12 @@ export default function Navbar() {
       >
         <div className="container flex flex-wrap justify-between items-center mx-auto">
           <Link href="/">
-            <a className="flex items-center">
-              <img
+            <a className="flex h-6 w-16 sm:h-9 relative items-center mr-3 ">
+              <Image
                 src="/images/logo.svg"
-                className="mr-3 h-6 sm:h-9"
+                className="h-full w-full"
                 alt="Logo"
+                layout="fill"
               />
             </a>
           </Link>

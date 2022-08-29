@@ -2,8 +2,53 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { PriceCard } from "../components/Files";
+
 export default function Index() {
   const [show, setShow] = useState(false);
+
+  const PriceCardData = [
+    {
+      price: "9",
+      price_range: "starter",
+      description:
+        "Good for anyone who is self-employed and just getting started.",
+      services_list: [
+        "Send 10 quotes and invoices",
+        "Connect up to 2 bank accounts",
+        "Track up to 15 expenses per month",
+        "Manual payroll support",
+        "Export up to 3 reports",
+      ],
+    },
+
+    {
+      price: "15",
+      price_range: "Small business",
+      description: "Perfect for small / medium sized businesses.",
+      services_list: [
+        "Send 25 quotes and invoices",
+        "Connect up to 5 bank accounts",
+        "Track up to 50 expenses per month",
+        "Automated payroll support",
+        "Export up to 12 reports",
+        "Bulk reconcile transactions",
+        "Track in multiple currencies",
+      ],
+    },
+    {
+      price: "39",
+      price_range: "Enterprise",
+      description: "For even the biggest enterprise companies.",
+      services_list: [
+        "Send unlimited quotes and invoices",
+        "Connect up to 15 bank accounts",
+        "Track up to 200 expenses per month",
+        "Automated payroll support",
+        "Export up to 25 reports, including TPS",
+      ],
+    },
+  ];
 
   return (
     <section className="text-white">
@@ -36,6 +81,7 @@ export default function Index() {
         </div>
 
         <div className="mx-auto w-4/6 h-1 mt-32 mb-12 rounded-full bg-blue-800"></div>
+
         <div className="text-3xl text-center font-bold">Main Services</div>
         <div className="text-center mx-auto sm:w-3/6 mt-2 text-gray-400">
           We can help your business increase revenue, decrease expenses, and
@@ -44,32 +90,32 @@ export default function Index() {
 
         <div className="grid mt-10 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-8 w-full ">
           <div className="flex flex-col gap-2 object-cover">
-            <img
-              src="/images/services/seo.svg"
-              className="p-2 bg-[#121A4D] rounded-xl w-[4em] h-[4em] object-cover"
-              alt="seo optimized"
-            />
+            <div className="relative p-2.5 bg-[#121A4D] w-max h-max rounded-xl flex items-center justify-center">
+              <Image
+                src="/images/services/seo.svg"
+                className=""
+                alt="seo optimized"
+                layout="intrinsic"
+                height={38}
+                width={38}
+              />
+            </div>
             <div className="font-bold text-xl">SEO Friendly</div>
             <div className="text-sm text-gray-300">
-              SEO-friendly content is the type of content that's created in a
-              way that helps the search engines rank it high.{" "}
+              SEO-friendly content is the type of content that{"'"}s created in
+              a way that helps the search engines rank it high.{" "}
             </div>
           </div>
           <div className="flex flex-col gap-2 object-cover">
             <div className="p-2 bg-[#121A4D] rounded-xl w-[4em] h-[4em] object-cover flex items-center justify-center">
-              <svg
-                width="40"
-                fill="#4A6CF7"
-                height="41"
-                viewBox="0 0 40 41"
-                class="a26"
-              >
-                <path
-                  opacity="0.5"
-                  d="M37.7778 40.2223H24C22.8954 40.2223 22 39.3268 22 38.2223V20.0001C22 18.8955 22.8954 18.0001 24 18.0001H37.7778C38.8823 18.0001 39.7778 18.8955 39.7778 20.0001V38.2223C39.7778 39.3268 38.8823 40.2223 37.7778 40.2223Z"
-                ></path>
-                <path d="M23.2222 0C22.6699 0 22.2222 0.447715 22.2222 1V12.3333C22.2222 12.8856 22.6699 13.3333 23.2222 13.3333H39C39.5523 13.3333 40 12.8856 40 12.3333V0.999999C40 0.447714 39.5523 0 39 0H23.2222ZM0 39C0 39.5523 0.447715 40 1 40H16.7778C17.3301 40 17.7778 39.5523 17.7778 39V27.6667C17.7778 27.1144 17.3301 26.6667 16.7778 26.6667H1C0.447716 26.6667 0 27.1144 0 27.6667V39ZM0 21.2222C0 21.7745 0.447715 22.2222 1 22.2222H16.7778C17.3301 22.2222 17.7778 21.7745 17.7778 21.2222V0.999999C17.7778 0.447714 17.3301 0 16.7778 0H1C0.447716 0 0 0.447715 0 1V21.2222Z"></path>
-              </svg>
+              <div className="relative p-2.5 bg-[#121A4D] w-max h-max rounded-xl flex items-center justify-center">
+                <Image
+                  src="/images/services/custom-web-design.png"
+                  layout="intrinsic"
+                  width={38}
+                  height={38}
+                />
+              </div>
             </div>
             <div className="font-bold text-xl">
               Completely custom web design
@@ -80,21 +126,41 @@ export default function Index() {
             </div>
           </div>
           <div className="flex flex-col gap-2 object-cover">
-            <img
-              src="/images/services/brand-design.png"
-              className="p-2 bg-[#121A4D] rounded-xl w-[4em] h-[4em] object-cover"
-              alt="seo optimized"
-            />
+            <div className="relative p-2.5 bg-[#121A4D] w-max h-max rounded-xl flex items-center justify-center">
+              <Image
+                src="/images/services/brand-design.png"
+                alt="seo optimized"
+                layout="intrinsic"
+                height={38}
+                width={38}
+              />
+            </div>
             <div className="font-bold text-xl">Branding & Design</div>
             <div className="text-sm">
               Our experienced professionals will work on creating breathtaking
-              designs to reach your customers and keep up with the brand's
+              designs to reach your customers and keep up with the brand{"'"}s
               identity.
             </div>
           </div>
         </div>
-      </div>
 
+        <div className="mx-auto w-4/6 h-1 sm:mt-32 mt-20 mb-12 rounded-full bg-blue-800"></div>
+
+        <div className="text-3xl text-center font-bold ">Pricing</div>
+        <div className="text-gray-400 lg:w-3/6 mt-2 sm:w-4/6 text-center mx-auto">
+          We always try to provide our services without exaggeration in price.
+          Also, if you have any offer, contact us via telegram
+        </div>
+        <div className="grid mt-10 lg:w-11/12   lg:grid-cols-3 md:grid-cols-2 grid-cols-1 md:gap-8 gap-20  ">
+          {PriceCardData.map((service) => (
+            <PriceCard key={service.price_range} service={service} />
+          ))}
+        </div>
+
+        <div className="mx-auto w-4/6 h-1 mt-32 mb-12 rounded-full bg-blue-800"></div>
+
+        {/* Our Work Process */}
+      </div>
     </section>
   );
 }
